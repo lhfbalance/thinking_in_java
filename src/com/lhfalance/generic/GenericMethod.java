@@ -1,6 +1,5 @@
 package com.lhfalance.generic;
 
-import sun.net.www.content.image.gif;
 
 public class GenericMethod {
   

@@ -12,13 +12,16 @@ public class ResponsiveUI extends Thread{
   @Override
   public void run() {
     while(true) {
-      d = d + (Math.PI + Math.E) / d ;
+      //d = d + (Math.PI + Math.E) / d ;
+      d = d;
     }
   }
 
   public static void main(String[] args) throws IOException {
     new ResponsiveUI();
-    System.in.read();
+    int in = System.in.read();
+    System.out.println(in);
+    d = in;
     System.out.println(d);
 
   }

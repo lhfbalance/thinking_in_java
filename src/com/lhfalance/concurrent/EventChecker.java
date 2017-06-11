@@ -25,8 +25,8 @@ public class EventChecker implements Runnable {
   
   public static void test(IntGenerator g, int count) {
     System.out.println("Press Control-C to exit");
-    //ExecutorService exec = Executors.newCachedThreadPool();
-    ExecutorService exec = Executors.newFixedThreadPool(2);
+    ExecutorService exec = Executors.newCachedThreadPool();
+//    ExecutorService exec = Executors.newFixedThreadPool(2);
     for(int i = 0; i < count; i++) {
       exec.execute(new EventChecker(g, i));
     }

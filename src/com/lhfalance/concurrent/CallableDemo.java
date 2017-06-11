@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 class TaskWithResult implements Callable<String> {
 
@@ -15,6 +16,7 @@ class TaskWithResult implements Callable<String> {
   }
   @Override
   public String call() throws Exception {
+    TimeUnit.MILLISECONDS.sleep(2);
     return "result of TaskResult " + id;
   }
   
@@ -22,7 +24,8 @@ class TaskWithResult implements Callable<String> {
 
 public class CallableDemo {
   public static void main(String[] args) {
-    ExecutorService exec = Executors.newCachedThreadPool();
+    //ExecutorService exec = Executors.newCachedThreadPool();
+    ExecutorService exec = Executors.newFixedThreadPool(5);
     ArrayList<Future<String>> results = new ArrayList<>();
     for (int i = 0; i < 1000; i++) {
       results.add(exec.submit(new TaskWithResult(i)));

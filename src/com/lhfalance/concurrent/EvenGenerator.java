@@ -7,7 +7,6 @@ public class EvenGenerator extends IntGenerator {
   @Override
   public int next() {
     ++currentEvenValue;
-    Thread.yield();
     ++currentEvenValue;
     return currentEvenValue;
   }
